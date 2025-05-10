@@ -96,12 +96,14 @@ public class WeatherListAdapter extends RecyclerView.Adapter<WeatherListAdapter.
             String temp_min_value = "Temp. mín: " +
                     Utils.getCelsiusTemperatureFromKevin(weather.getMain().getTemp_min());
             temp_min.setText(temp_min_value);
-            String pressure_value = "Pressão: " + 1008.2 + "hPa";
+            String pressure_value = "Pressão: " + weather.getMain().getPressure() + "hPa";
             pressure.setText(pressure_value);
             String humidity_value = "Umidade: " + weather.getMain().getHumidity() + "%";
             humidity.setText(humidity_value);
             Drawable resDrawIcon = Utils.getDrawable(weather.getWeather().get(0).getIcon(), context);
             imageView.setImageDrawable(resDrawIcon);
+            //o problema deve estar aqui
+            //o problema estava com o nome da imagem
         }
     }
 

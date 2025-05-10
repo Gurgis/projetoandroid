@@ -39,11 +39,12 @@ public class Repository {
 
     public HashMap<String, String> getLocalizations() {
         HashMap<String, String> localizations = new HashMap<>();
-        localizations.put("1", "-8.05428,-34.8813");
-        localizations.put("2", "-9.39416,-40.5096");
-        localizations.put("3", "-8.284547,-35.969863");
-        localizations.put("4", "-8.284547,-35.969863");
-        localizations.put("5", "-9.39416,-40.5096");
+        localizations.put("1", "-8.05428,-34.8813");// recife
+        localizations.put("6", "-3.083039,-60.006381");// manaus
+        localizations.put("8", "-22.9068,-43.1729");// rio de janeiro
+        localizations.put("9", "-1.4558,-48.4902");// belém
+
+
         return localizations;
     }
 }

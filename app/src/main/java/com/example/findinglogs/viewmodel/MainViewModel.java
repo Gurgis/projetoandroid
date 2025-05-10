@@ -68,6 +68,9 @@ public class MainViewModel extends AndroidViewModel {
         }
     }
 
+    public void AtualizaWeatherData(){
+        fetchAllForecasts();
+    }
     @Override
     protected void onCleared() {
         handler.removeCallbacks(fetchRunnable);

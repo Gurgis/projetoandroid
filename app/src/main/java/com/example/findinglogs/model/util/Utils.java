@@ -32,6 +32,7 @@ public class Utils {
         String nameDrawable = "weather_icon_" + name;
         Log.d("draw", nameDrawable);
         try {
+
             int idDrawable = resources.getIdentifier(nameDrawable, Constants.KEY_COD_DRAWABLE,
                     context.getPackageName());
             drawable = ResourcesCompat.getDrawable(resources, idDrawable, null);

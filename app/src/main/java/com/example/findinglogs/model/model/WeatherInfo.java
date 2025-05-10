@@ -54,7 +54,7 @@ public class WeatherInfo {
     public void setTemp_max(float temp_max) {
         this.temp_max = temp_max;
     }
-
+//get e set pressure confirmados aqui
     public float getPressure() {
         return pressure;
     }
