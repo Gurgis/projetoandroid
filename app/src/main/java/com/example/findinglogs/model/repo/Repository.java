@@ -40,9 +40,9 @@ public class Repository {
     public HashMap<String, String> getLocalizations() {
         HashMap<String, String> localizations = new HashMap<>();
         localizations.put("1", "-8.05428,-34.8813");// recife
-        localizations.put("6", "-3.083039,-60.006381");// manaus
-        localizations.put("8", "-22.9068,-43.1729");// rio de janeiro
-        localizations.put("9", "-1.4558,-48.4902");// belém
+        localizations.put("2", "-3.1019,-60.025");// manaus
+        localizations.put("3", "-22.9068,-43.1729");// rio de janeiro
+        localizations.put("4", "-1.4558,-48.4902");// belém
 
 
         return localizations;

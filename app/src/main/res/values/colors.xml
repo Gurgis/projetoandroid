@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
+    <color name="creme">#FFF8E1</color>
 
     <!-- Céu limpo -->
     <color name="weather_clear_sky">#4FC3F7</color> <!-- azul claro -->

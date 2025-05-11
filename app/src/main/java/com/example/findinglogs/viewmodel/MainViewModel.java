@@ -67,7 +67,7 @@ public class MainViewModel extends AndroidViewModel {
             });
         }
     }
-
+    //para a atualização do home
     public void AtualizaWeatherData(){
         fetchAllForecasts();
     }

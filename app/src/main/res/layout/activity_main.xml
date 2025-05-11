@@ -5,14 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#69B1E7F0"
+    android:background="#FFF8E1"
     tools:context=".view.MainActivity">
-
+    <!-- fiz com que o fundo do layout fosse transparente -->
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@android:color/transparent"
+        >
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -55,6 +57,18 @@
             android:layout_marginBottom="40dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/weather_item" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Switch" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

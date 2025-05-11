@@ -113,11 +113,15 @@ public class WeatherListAdapter extends RecyclerView.Adapter<WeatherListAdapter.
         View view = LayoutInflater.from(context).inflate(R.layout.weather_item, parent, false);
         return new ViewHolder(view);
     }
-
+    //
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Weather weather = weathers.get(position);
         holder.holdWeather(weather, context);
+
+
+
+
     }
 
     @Override
