@@ -25,15 +25,27 @@ The app is functional, but there are still some improvements and bug fixes to be
 - [X] 🧹 Eliminate **duplicate data** issues
 
 ---
+✅ Completed Features
 
-## 🧠 Your Mission (Should You Choose to Accept It)
+    📊 Pressure data now fetched correctly from the API and displayed on screen [desafio]
 
-> 🎺 *Maestro, a drum roll, please...*
+    🔄 Refresh button fully functional and reloads data on tap [desafio]
 
-Your challenge is to help us fix those bugs and complete the tasks listed above.
-Bring your problem-solving skills, creativity, and caffeine if needed — and let’s make this app shine!
+    🎨 Fixed weather icons that weren’t displaying correctly [desafio]
 
-Ready?
-**Go go go...**
-🚀🚀🚀🚀🚀🚀🚀🚀🚀
+    🧹 Duplicate city data issue resolved [desafio]
+
+    📱 New screen with detailed weather information when a city is tapped on the home screen [extra]
+---
+
+🛠️ Future Improvements
+
+    🌍 Improve translation system for weather descriptions returned by the API — many terms are still not properly translated 
+
+    🎨 Refine UI/UX design for a more polished and intuitive user experience 
+
+    📅 Add multi-day forecast to provide richer weather information using more OpenWeather API endpoints 
+
+    🌡️ Enrich detailed weather screen with more metrics (e.g., humidity, wind direction, visibility) 
+
 
