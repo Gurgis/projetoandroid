@@ -27,13 +27,13 @@ The app is functional, but there are still some improvements and bug fixes to be
 ---
 ✅ Completed Features
 
-    📊 Pressure data now fetched correctly from the API and displayed on screen [desafio]
+    📊 Pressure data now fetched correctly from the API and displayed on screen [Challenge]
 
-    🔄 Refresh button fully functional and reloads data on tap [desafio]
+    🔄 Refresh button fully functional and reloads data on tap [Challenge]
 
-    🎨 Fixed weather icons that weren’t displaying correctly [desafio]
+    🎨 Fixed weather icons that weren’t displaying correctly [Challenge]
 
-    🧹 Duplicate city data issue resolved [desafio]
+    🧹 Duplicate city data issue resolved [Challenge]
 
     📱 New screen with detailed weather information when a city is tapped on the home screen [extra]
 ---
