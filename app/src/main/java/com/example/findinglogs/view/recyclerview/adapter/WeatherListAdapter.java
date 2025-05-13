@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-
+//importar Intent
+import android.content.Intent;
+//importar DetalhesClimaActivity
+import com.example.findinglogs.view.DetalhesClimaActivity;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -113,14 +115,32 @@ public class WeatherListAdapter extends RecyclerView.Adapter<WeatherListAdapter.
         View view = LayoutInflater.from(context).inflate(R.layout.weather_item, parent, false);
         return new ViewHolder(view);
     }
-    //
+    //irei começar a atualização par adicionar previsão do tempo por aqui
+    //primeiro irei transformar o weather_item em algo clicável
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Weather weather = weathers.get(position);
         holder.holdWeather(weather, context);
 
 
+        holder.cardView.setOnClickListener(v -> {
 
+            Intent intent = new Intent(context, DetalhesClimaActivity.class);
+            //acrescentando informações para uma análise mais detalhada
+            intent.putExtra("cidade", weather.getName());
+            intent.putExtra("temperatura", weather.getMain().getTemp());
+            intent.putExtra("umidade", weather.getMain().getHumidity());
+            intent.putExtra("pressao", weather.getMain().getPressure());
+            intent.putExtra("nascer_do_sol", weather.getSys().getSunrise());
+            intent.putExtra("por_do_sol", weather.getSys().getSunset());
+            intent.putExtra("descricao", weather.getWeather().get(0).getDescription());
+            intent.putExtra("sensacao_termica", weather.getMain().getFeels_like());
+            intent.putExtra("temp_min", weather.getMain().getTemp_min());
+            intent.putExtra("temp_max", weather.getMain().getTemp_max());
+            intent.putExtra("icone_clima", weather.getWeather().get(0).getIcon());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        });
 
     }
 

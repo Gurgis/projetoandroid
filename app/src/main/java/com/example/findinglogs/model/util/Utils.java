@@ -52,6 +52,6 @@ public class Utils {
         fmt.setMaximumFractionDigits(1);
         fmt.setRoundingMode(RoundingMode.DOWN);
         String celsius = fmt.format(convertToCelsius);
-        return celsius + "ºC";
+        return celsius + "°C";
     }
 }

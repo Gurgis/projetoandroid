@@ -11,11 +11,24 @@ public class Weather {
     private String name;
     private List<WeatherDetail> weather = new ArrayList<>();
 
+    private Sys sys; // classe que contém sunrise e sunset para eu por na atualização
     public Weather() {
     }
 
     public WeatherInfo getMain() {
         return main;
+    }
+
+    public class Sys {
+        private long sunrise;
+        private long sunset;
+
+        public long getSunrise() { return sunrise; }
+        public long getSunset() { return sunset; }
+    }
+
+    public Sys getSys() {
+        return sys;
     }
 
     public void setMain(WeatherInfo main) {
