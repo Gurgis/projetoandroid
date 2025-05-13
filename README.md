@@ -46,6 +46,6 @@ The app is functional, but there are still some improvements and bug fixes to be
 
     📅 Add multi-day forecast to provide richer weather information using more OpenWeather API endpoints 
 
-    🌡️ Enrich detailed weather screen with more metrics (e.g., humidity, wind direction, visibility) 
+    🌡️ Enrich detailed weather screen with more metrics 
 
 
