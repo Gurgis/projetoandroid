@@ -1,7 +1,6 @@
 package com.example.findinglogs.view;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,25 +20,29 @@ public class MainActivity extends AppCompatActivity {
 
     private WeatherListAdapter adapter;
     private final List<Weather> weathers = new ArrayList<>();
-    private FloatingActionButton fetchButton;
+    private MainViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MainViewModel mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         RecyclerView recyclerView = findViewById(R.id.recycler_view_weather);
-        fetchButton = findViewById(R.id.fetchButton);
+        FloatingActionButton fetchButton = findViewById(R.id.fetchButton);
+
         adapter = new WeatherListAdapter(this, weathers);
         recyclerView.setAdapter(adapter);
-        mainViewModel.getWeatherList().observe(this,
-                weathers -> adapter.updateWeathers(weathers));
 
-        fetchButton.setOnClickListener(v -> {
-            mainViewModel.AtualizaWeatherData();
-            Toast.makeText(MainActivity.this, "Atualizando...", Toast.LENGTH_SHORT).show();
+        // Observador da lista de dados
+        viewModel.getWeatherList().observe(this, weathers -> {
+            adapter.updateWeathers(weathers);
         });
 
-
+        // Botão de atualização (agora chama refreshData)
+        fetchButton.setOnClickListener(v -> {
+            viewModel.refreshData();
+            Toast.makeText(MainActivity.this, "Atualizando...", Toast.LENGTH_SHORT).show();
+        });
     }
 }

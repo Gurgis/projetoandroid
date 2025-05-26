@@ -1,6 +1,5 @@
 package com.example.findinglogs.viewmodel;
 
-
 import android.app.Application;
 import android.os.Handler;
 import android.os.Looper;
@@ -25,6 +24,10 @@ public class MainViewModel extends AndroidViewModel {
     private final Repository mRepository;
     private final MutableLiveData<List<Weather>> _weatherList = new MutableLiveData<>(new ArrayList<>());
     private final LiveData<List<Weather>> weatherList = _weatherList;
+    private final MutableLiveData<Integer> refreshTrigger = new MutableLiveData<>(0); // Novo trigger
+//atualização: agora a activity apenas "pede" uma atualização pelo refreshdata
+    //viewmodel decide como fazer issoi
+        //agora está mais no padrão mvvm
 
     private final Handler handler = new Handler(Looper.getMainLooper());
     private final Runnable fetchRunnable = this::fetchAllForecasts;
@@ -33,6 +36,13 @@ public class MainViewModel extends AndroidViewModel {
         super(application);
         mRepository = new Repository(application);
         startFetching();
+
+        // Observa mudanças no trigger para atualizações manuais
+        refreshTrigger.observeForever(trigger -> {
+            if (trigger > 0) { // Evita execução no init
+                fetchAllForecasts();
+            }
+        });
     }
 
     public LiveData<List<Weather>> getWeatherList() {
@@ -55,7 +65,7 @@ public class MainViewModel extends AndroidViewModel {
                 public void onSuccess(Weather result) {
                     updatedList.add(result);
                     if (updatedList.size() == localizations.size()) {
-                        _weatherList.setValue(updatedList);
+                        _weatherList.postValue(updatedList);
                         handler.postDelayed(fetchRunnable, FETCH_INTERVAL);
                     }
                 }
@@ -67,17 +77,20 @@ public class MainViewModel extends AndroidViewModel {
             });
         }
     }
-    //para a atualização do home
-    public void AtualizaWeatherData(){
-        fetchAllForecasts();
+
+    // metodo para a atualização manual
+
+    public void refreshData() {
+        refreshTrigger.setValue(refreshTrigger.getValue() + 1);
     }
+
     @Override
     protected void onCleared() {
         handler.removeCallbacks(fetchRunnable);
-        super.onCleared();
-    }
 
-    public void retrieveForecast(String latLon, WeatherCallback callback) {
-        mRepository.retrieveForecast(latLon, callback);
+        // Para observers usando observeForever, eu posso fazer a remoção assim:
+        refreshTrigger.removeObserver(observer -> {}); // Remove todos os observers
+
+        super.onCleared();
     }
 }
