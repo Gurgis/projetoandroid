@@ -60,45 +60,30 @@ public class MainActivity extends AppCompatActivity {
             unregisterReceiver(updateReceiver);
         }
     }
-    private String getWifiStateName(int state) {
-        switch (state) {
-            case WifiManager.WIFI_STATE_DISABLED:
-                return "Desligado";
-            case WifiManager.WIFI_STATE_DISABLING:
-                return "Desligando";
-            case WifiManager.WIFI_STATE_ENABLED:
-                return "Ligado";
-            case WifiManager.WIFI_STATE_ENABLING:
-                return "Ligando";
-            case WifiManager.WIFI_STATE_UNKNOWN:
-            default:
-                return "Desconhecido";
-        }
-    }
+   // private String getWifiStateName(int state) {
+      //  switch (state) {
+           // case WifiManager.WIFI_STATE_DISABLED:
+            //    return "Desligado";
+           // case WifiManager.WIFI_STATE_DISABLING:
+            //    return "Desligando";
+           // case WifiManager.WIFI_STATE_ENABLED:
+             //   return "Ligado";
+            //case WifiManager.WIFI_STATE_ENABLING:
+             //   return "Ligando";
+            //case WifiManager.WIFI_STATE_UNKNOWN:
+           // default:
+             //   return "Desconhecido";
+       // }
+   // }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //verifica o estado atual do wifi
-        WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+       WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
 
 
-        String status;
-        if (wifiManager != null) {
-            int wifiState = wifiManager.getWifiState();
 
-            if (wifiState == WifiManager.WIFI_STATE_ENABLED) {
-                status = "Wi-Fi está LIGADO";
-            } else if (wifiState == WifiManager.WIFI_STATE_DISABLED) {
-                status = "Wi-Fi está DESLIGADO";
-            } else {
-                status = "Estado: " + getWifiStateName(wifiState);
-            }
-
-
-        } else {
-            status = "Serviço Wi-Fi não disponível";
-        }
 
 
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
