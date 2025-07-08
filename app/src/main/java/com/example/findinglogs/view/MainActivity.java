@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //verifica o estado atual do wifi
-       WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+      // WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
 
 
 
