@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- Permissão pra verificar o estado do wifi-->
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FindingLogs"
         tools:targetApi="31">
+
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -24,8 +26,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- receiver do wifi -->
+        <receiver
+            android:name="com.example.findinglogs.broadcast.WifiStateReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+
+
+
+
+
+
+
         <activity android:name=".view.DetalhesClimaActivity"
             />
+
+
 
         <meta-data
             android:name="preloaded_fonts"
